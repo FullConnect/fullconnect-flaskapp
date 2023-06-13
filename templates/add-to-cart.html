@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+  <h1 align = 'center'>Добавление товара в корзину</h1>
+
+
+  {{ form.csrf_token }}
+<div class="container">
+  <form method="POST" class="needs-validation" novalidate>
+    {{ form.csrf_token }}
+    {{ form.hidden_tag() }}
+  
+    <div class="form-group">
+      <label for="basetype">Тип основы</label>
+      {{ form.basetype(class="form-control", id="basetype", required="required") }}
+    </div>
+      <div class="form-group">
+      <label for="extend_basetype">Расширенный тип основы</label>
+      {{ form.extend_basetype(class="form-control", id="extend_basetype") }}
+    </div>
+      <div class="form-group">
+      <label for="measuring_range">Диапазон измерений</label>
+      {{ form.measuring_range(class="form-control", id="measuring_range", required="required") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="exit_range">Диапазон выходных значений</label>
+      {{ form.exit_range(class="form-control", id="exit_range", required="required") }}
+    </div>
+      <div class="form-group">
+      <label for="display">Диагональ дисплея</label>
+      {{ form.display(class="form-control", id="display") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="connection_process">Процесс подключения</label>
+      {{ form.connection_process(class="form-control", id="connection_process") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="temperature_measured">Температура измеряемой среды</label>
+      {{ form.temperature_measured(class="form-control", id="temperature_measured") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="process_connection_material">Материал подключения процесса</label>
+      {{ form.process_connection_material(class="form-control", id="process_connection_material") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="electrical_connection">Электрическое подключение</label>
+      {{ form.electrical_connection(class="form-control", id="electrical_connection") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="typical_additions">Типичные дополнения</label>
+      {{ form.typical_additions(class="form-control", id="typical_additions") }}
+    </div>
+    
+    <div class="form-group">
+      <label for="liquid">Жидкость</label>
+      {{ form.liquid(class="form-control", id = "liquid") }}
+    </div>
+  
+    <div class="form-group">
+      <label for="quantity">Количество</label>
+      {{ form.quantity(class="form-control", id="quantity", required = "required") }}
+    </div>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+    <div class="form-group">{{ form.submit(class="btn btn-warning btn-block") }}</div>
+  </form>
+</div>
+{% endblock %}

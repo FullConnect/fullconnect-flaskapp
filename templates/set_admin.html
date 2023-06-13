@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Set Admin Role for {{ user.username }}</h1>
+  <form method="POST" action="{{ url_for('set_admin', id = user.id) }}">
+    {{ form.csrf_token }}
+    {{ form.submit(class='btn btn-primary') }}
+  </form>
+{% endblock %}

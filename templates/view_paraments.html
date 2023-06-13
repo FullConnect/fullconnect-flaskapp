@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div style = "margin-left: 120px;">
+    <h1>Параметры измерительного устройства</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Номер</th>
+          <th>Наименование</th>
+          <th>Категория</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for paraments in parament %}
+          <tr>
+            <td>{{ paraments.id_paraments }}</td>
+            <td>{{ paraments.param_descr }}</td>
+            <td>{{ paraments.category.name_cat }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('add_paraments') }}" class="btn btn-warning text-black mt-3">Добавить параметр</a>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div style = "margin-left: 120px;">
+    <h1>Услуги</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Номер услуги</th>
+          <th>Наименование</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for services in services %}
+          <tr>
+            <td>{{ services.id_serv_cat }}</td>
+            <td>{{ services.name_serv_cat }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('add_service') }}" class="btn btn-warning text-black mt-3">Добавить услугу</a>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+{% endblock %}

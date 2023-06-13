@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>Заявки на устройства</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Почта</th>
+      <th>Организация</th>
+      <th>Телефон</th>
+      <th>Устройство</th>
+      <th>Количество</th>
+      <th>Дата</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for item in checkout_items %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.first_name }}</td>
+        <td>{{ item.last_name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.organization }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.device }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+      </tr>
+      {% endfor %}
+      <p><a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning text-black mt-3">Назад</a></p>
+{% endblock %}

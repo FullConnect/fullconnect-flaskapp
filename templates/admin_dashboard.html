@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div style = "margin-left: 120px;">
+<h1>Административная часть</h1>
+    <p> <a href = "{{ url_for('add_paraments') }}">Добавить параметры</a></p>
+    <p> <a href = "{{ url_for('add_category') }}">Добавить категорию</a></p>
+    <p> <a href = "{{ url_for('add_service') }}">Добавить услугу</a></p>
+    <p> <a href = "{{ url_for('view_paraments') }}">Просмотреть все параметры</a></p>
+    <p> <a href = "{{ url_for('view_category') }}">Просмотреть категории</a></p>
+    <p> <a href = "{{ url_for('admin_orders') }}">Просмотреть заказы</a></p>
+    <p> <a href = "{{ url_for('checkout_item') }}">Просмотреть все заказанные товары</a></p>
+    <p> <a href = "{{ url_for('view_service') }}">Просмотреть все услуги</a></p>
+</div>
+{% endblock %}

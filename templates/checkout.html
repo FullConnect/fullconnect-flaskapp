@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for checkout in checkouts %}
+            <tr>
+                <td>{{ checkout.id }}</td>
+                <td>{{ checkout.date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>
+                    <ul>
+                        {% for item in checkout.items %}
+                        <li>{{ item.first_name }} {{ item.last_name }}, {{ item.organization }}, {{ item.device }}, {{ item.quantity }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+</tbody>
+</table>
+{% endblock %}

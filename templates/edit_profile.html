@@ -1,0 +1,51 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+
+{% block body %}
+<h1 class="text-center" style = 'margin-top: 60px;'>Изменение профиля</h1>
+<div class="container my-5">
+  <form method="post" action="" class="mx-auto w-50">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.first_name.label }}
+      {{ form.first_name(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.last_name.label }}
+      {{ form.last_name(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.email.label }}
+      {{ form.email(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.phone.label }}
+      {{ form.phone(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.organization.label }}
+      {{ form.organization(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.password.label }}
+      {{ form.password(class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ form.confirm_password.label }}
+      {{ form.confirm_password(class_="form-control") }}
+    </div>
+    <button id="save-btn" class="btn btn-warning text-black mt-3 text-center">Сохранить</button>
+  </form>
+  <a href="{{ url_for('profile') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+{% endblock %}

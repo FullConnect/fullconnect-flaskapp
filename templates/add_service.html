@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div style = "margin-left: 120px;">
+<h1>Добавить услугу</h1>
+    <form method = "POST" action = "">
+        {{ form.hidden_tag() }}
+        {{ form.name_serv_cat }}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.errors }}
+        </div>
+        {% endif %}
+        {{ form.submit }}
+    </form>
+    <a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+{% endblock %}

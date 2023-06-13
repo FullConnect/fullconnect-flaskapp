@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: mysql+pymysql://root:a13gHvx068@db/mstech  
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: mstech
+      MYSQL_ROOT_PASSWORD: a13gHvx068
+    volumes:
+      - db_data:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db_data:

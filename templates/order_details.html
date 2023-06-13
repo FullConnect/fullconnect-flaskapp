@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+<h1 align = 'center'>Подробности заказа</h1>
+<div style="margin-left: 140px; margin-top: 60px;">
+    <p>Номер заказа: {{ order.order_id }}</p>
+    <p>Имя: {{ order.first_name }}</p>
+    <p>Отчество: {{ order.last_name }}</p>
+    <p>Почта: {{ order.email }}</p>
+    <p>Организация: {{ order.organization }}</p>
+    <p>Номер телефона: {{ order.phone }}</p>
+    {% for order_id in order_items %}
+        <p>Устройство: {{ order_id.device }} Количество: {{ order_id.quantity }}</p>
+    {% endfor %}
+    <p>Дата: {{ order.date.strftime(date_format) }}</p>
+    <br>
+    <a href="{{ url_for('profile') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+
+
+{% endblock %}

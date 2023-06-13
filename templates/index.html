@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<header class = "header">
+    <div class = "container">
+        <div class = "header_content">
+
+            <div class = "header_badge">
+                Оптовая продажа измерительных приборов, которая ставит клиента на первое место
+            </div>
+
+            <h1 class = "header_title">Повышение удовлетворенности ваших клиентов качественными продуктами</h1>
+
+            <div class = "header_text">
+                <p>Обширный опыт по разработке, поставке, монтажу, наладке, модернизации автоматизированных систем управления технологическими процессами</p>
+            </div>
+
+            <a class = "header_btn" href = "#" class="no-decoration">Узнайте о преимуществах работы с нами</a>
+
+            <!-- <img src = "static/img/Main photo.png" id = "header_photo"> -->
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class = "main">
+        <img src = "static/img/main advanteges.png" id = "main_advanteges">
+    </div>
+
+    <div class = "countainer_partners_clients">
+
+        <div class = "main_clients">
+
+            <div class = "main_clients_title">НАШИ КЛИЕНТЫ</div>
+
+            <div class = "main_clients_countainer">
+
+                <div class = "clients_countainer"><img src="/static/img/kamaz-emblema-logotip-kamaz.jpg" alt="" srcset="" width = "300px" height = "250px"></div>
+                <div class = "clients_countainer"><img src="/static/img/tatneft-logo-brandlogos.net_.png" alt="" width = "300px" height = "250px"></div>
+                <div class = "clients_countainer"><img src="/static/img/image.png" alt="" width = "300px" height = "250px"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class = "services">
+    <div class = "services_coutainer">
+
+            <div class = "services_text_logo_box_1">
+
+                <div class = "services_text_1">МС Технологии оказывает услуги в разработке современных решений автоматизации различных технологий и производств. Осуществляем поставку средств автоматизации, контроля и метрологии.</div>
+                <div class = "services_logo_1"><img src = "static/img/balluff-logo.png"></div>
+
+            </div>
+
+            <div class = "stripe_1"></div>
+
+            <div class = "services_text_logo_box_2">
+
+                <div class = "services_text_2">Компания является официальным региональным представителем по продажам, монтажу, ремонту и пуску в эксплуатацию оборудования.</div>
+                <div class = "services_logo_2"><img src = "static/img/Jumo-logo.png"></div>
+            
+            </div>
+
+            <div class = "stripe_2"></div>
+
+                <div class = "services_advanteges">
+
+                    <div class = "logo_services_advanteges"><img src = "static/img/Испытательные стенды.png"></div>
+                    <div class = "logo_services_advanteges"><img src = "static/img/Электронная лаборатория.png"></div>
+                    <div class = "logo_services_advanteges"><img src = "static/img/Сборка и ремонт.png"></div>
+
+                </div>
+
+        </div>
+    </div>
+        <div class = "products_coutainer">
+
+        <div class = "products">
+
+            <div class = "products_title">НАШИ ПРОДУКТЫ</div>
+ 
+            <div class = "product_item_box_1">
+
+                <div class = "product_item">
+
+                    <div class = "product_photo"><img src = "/static/img/Общепромышленный_преобразователь_давления_AMP_4753.png" alt="" srcset=""></div>
+                    <div class = "product_item_description" align = 'center'>Общепромышленный преобразователь давления AMP 4753</div>
+
+                </div>
+
+                <div class = "product_item">
+
+                    <div class = "product_photo"><img src = "/static/img/Взрывозащищенный_преобразователь_давления_AMP_4753_Exid.png" alt="" srcset=""></div>
+                    <div class = "product_item_description" align = 'center'>Взрывозащищенный преобразователь давления AMP 4753 Exid</div>
+
+                </div>
+
+                <div class = "product_item">
+
+                    <div class = "product_photo"><img src = "/static/img/Искробезопасный_преобразователь_давления_AMP_4753_Exia.png" alt="" srcset=""></div>
+                    <div class = "product_item_description" align = 'center'>Искробезопасный преобразователь давления AMP 4753 Exia</div>
+
+                </div>
+            </div>
+            <a href = "{{ url_for( 'add_to_cart' ) }}" class = "product_show_more_1">ЗАКАЗАТЬ</a>
+        </div>
+
+
+
+        </div>
+    <div class = "services2">
+            <div class = "products_title" style = 'margin-bottom: 60px;'>НАШИ УСЛУГИ</div>
+            <div><img src="/static/img/Наши_услуги.png" alt="" srcset=""></div>   
+        <a href = "{{ url_for( 'service' ) }}" class = "product_show_more_2" style = 'margin-bottom: 60px;'>ЗАКАЗАТЬ</a>
+    </div>
+
+
+    <div class = "contact_countainer">
+
+        <div class = "countact_title">КОНТАКТНЫЕ ДАННЫЕ</div>
+
+        <div class = "contact_box">
+
+            <div class = "countact_logo">МС Технологии</div>
+
+            <div class = "stripe_3"></div>
+
+            <div class = "contact_information">
+
+                <div class = "contact_adress">Россия, Республика Татарстан, г.Набережные Челны, ул.Ивана Утробина, дом 5</div>
+                <div class = "contact_telephone">+7 (8552) 91-37-47</div>
+                <div class = "contact_email">mst@promkip.ru</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class = "communication_countainer">
+
+        <div class = "communication_title">СВЯЖИТЕСЬ С НАМИ</div>
+
+        <div class = "main_communication_box">
+
+            <div class = "communication_badge_text">Оставьте заявку, чтобы узнать о возможности поставки на ваше предприятие</div>
+
+            <form action = "send_msg_company" method = "POST">
+
+                <div class = "communication_first_last_name_box">
+
+                    <input placeholder = "Имя" value = "" type = "text" name = "first_name" size = "16" class = "communication_first_last_name_text">
+
+                    <input placeholder = "Номер телефона" value = "" type = "text" name = "telephone" size = "16" class = "communication_first_last_name_text">
+                
+                </div>
+
+                <div class = "communication_message_title">Ваше сообщение</div>
+                    <textarea value = "" type = "text" name = "text" size = "16" class = "communication_message_text"></textarea>
+
+                <div class = "checkbox_label">
+                    <input type = "checkbox" class = "checkbox">
+                    <label >Заполняя форму соглашаюсь на обработку персональных данных</label>
+                </div>
+
+                <button type = "submit" class = "btn_communication_send">ОТПРАВИТЬ</button>
+
+            </form>
+
+            <div class = "addition_communication_box">
+
+                <div class = "addition_communication_main_title">Контактная
+                    информация</div>
+                <div class = "addition_communication_title_company">ООО  МС Технологии</div>
+
+                <div class = "addition_communication_title">Адрес</div>
+                <div class = "addition_communication_text">г.Набережные Челны, ул.Ивана Утробина, дом 5</div>
+                    <div class = "addition_communication_text">По будням с 08:00 до 17:00</div>
+
+                <div class = "addition_communication_title">Телефон</div>
+                <div class = "addition_communication_text">+7 (8552) 91-37-47</div>
+
+
+                <div class = "addition_communication_title">E-mail</div>
+                <div class = "addition_communication_text">mst@promkip.ru</div>
+
+                <!-- <div class = "addition_communication_social_network">
+
+                        <a href = "#" class = "social_list">VK</a>
+                        <a href = "#" class = "social_list">Telegram</a>
+                        <a href = "#" class = "social_list">Whatsapp*</a>
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

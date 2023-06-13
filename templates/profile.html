@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<h1 align = 'center'>Профиль</h1>
+<div class="container my-5">
+  <div class="form-group">
+    <p class_="form-control">Имя: {{ user.first_name }}</p>
+  </div>
+  <div class = "form-group">
+    <p class_="form-control">Фамилия: {{ user.last_name }}</p>
+  </div>
+  <div class = "form-group">
+    <p class_="form-control">Почта: {{ user.email }}</p>
+  </div>
+  <div class = "form-group">
+    <p class_="form-control">Телефон: {{ user.phone }}</p>
+  </div>
+  <div class = "form-group">
+    <p class_="form-control">Организация: {{ user.organization }}</p>
+  </div>
+  <div class = "form-group">
+  <a href = "{{ url_for('edit_profile') }}"><button id = "save-btn" class="btn btn-warning text-black mt-3 text-center">Изменить данные</button></a>
+  </div>
+</div>
+  <h1 align = 'center'>Заявки</h1>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        {% if orders %}
+          {% for order_id, items in orders.items() %}
+              <h2><a href="{{ url_for( 'orders_details', order_id = order_id) }}" class = "no-decoration">Заказ #{{ order_id }}</a></h2>
+          {% endfor %}
+        {% else %}
+          <p>Заказов нет.</p>
+          <p><a href="{{ url_for( 'add_to_cart' ) }}">Добавить товар в корзину</a></p>
+        {% endif %}
+  
+        <h1 align = 'center'>Услуги</h1>
+  
+        {% if records %}
+        {% for date, service_records in records.items() %}
+          {% for record in service_records %}
+            <h2><a href="{{ url_for('service_details', id = record.id) }}" class = "no-decoration">Запись на услугу #{{ record.id }}</a></h2>
+          {% endfor %}
+        {% endfor %}
+        {% else %}
+          <p>Заказов услуг нет.</p>
+          <p><a href="{{ url_for( 'service' ) }} class = "no-decoration"">Записаться на услугу</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

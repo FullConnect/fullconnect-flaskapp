@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+<h1 align = 'center'>Услуги</h1>
+<div style="margin-left: 140px; margin-top: 60px;">
+    <p>Заказ услуги номер: {{ record.id }}</p>
+    <p>Имя: {{ record.first_name }}</p>
+    <p>Отчество: {{ record.last_name }}</p>
+    <p>Почта: {{ record.email }}</p>
+    <p>Организация: {{ record.organization }}</p>
+    <p>Номер телефона: {{ record.phone }}</p>
+    <p>Услуга: {{ record.name_serv_cat }}</p>
+    <p>Дата: {{ record.data }}</p>
+    <p>Комментарий: {{ record.commentary }}</p>
+    <br>
+    <a href="{{ url_for('profile') }}" class="btn btn-warning text-black mt-3">Назад</a>
+</div>
+
+{% endblock %}

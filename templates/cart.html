@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+  <div class="container">
+    <h2 align = 'center' style = "margin-top: 60px; margin-bottom: 60px;">Оформление заявки</h2>
+    {% if 'cart' in session %}
+      <div class="row">
+        <div class="col-md-12">
+          <form method="POST" action="/checkout">
+            <div class="form-group">
+              {{ form.csrf_token }}
+              {{ form.hidden_tag() }}
+              {{ form.first_name(class="form-control", placeholder="Имя", required=true, value = current_user.first_name) }}
+            </div>
+            <div class="form-group">
+              {{ form.last_name(class="form-control", placeholder="Фамилия", required=true, value=current_user.last_name) }}
+            </div>
+            <div class="form-group">
+              {{ form.email(class="form-control", placeholder="Email", required=true, value=current_user.email) }}
+            </div>
+            <div class="form-group">
+              {{ form.organization(class="form-control", placeholder="Организация", value=current_user.organization) }}
+            </div>
+            <div class="form-group">
+              {{ form.phone(class="form-control", placeholder="Номер телефона", required=true, value=current_user.phone) }}
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" name="agreement" required>Я согласен с условиями использования персональных данных</label>
+            </div>
+              {% if form.errors %}
+              <div class="alert alert-danger">
+                  {{ form.errors }}
+              </div>
+            {% endif %}
+            <div class="form-group">
+              {{ form.submit(class="btn btn-warning btn-block text-dark") }}
+            </div>
+          </form>
+          <p>{{ message }}</p>
+        </div>
+        <div class="col-md-12">
+          <h4>Корзина</h4>
+          <table class="table">
+            <tbody>
+              {% for item in cart_items %}
+              <tr>
+                <td>{{ item.basetype }} - {{ item.extend_basetype }} - {{ item.measuring_range }} - {{ item.exit_range }} - {{ item.display }} - {{ item.connection_process }} - {{ item.temperature_measured }} - {{ item.process_connection_material }} - {{ item.electrical_connection }} - {{ item.typical_additions }} - {{ item.liquid }} - {{ item.quantity }}</td>
+                <td>
+                  <form method="POST" action="{{ url_for('remove_from_cart') }}">
+                    <input type="hidden" name="item_id" value="{{ loop.index0 }}">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <p>Общее количество: {{ total_quantity }}</p>
+          <p><a href="{{ url_for('add_to_cart') }}" class="btn btn-warning btn-block text-dark">Добавить товар</a></p>
+        </div>
+      </div>
+    {% else %}
+      <div class="alert alert-warning">Ваша корзина пуста</div>
+      <p><a href="{{ url_for('add_to_cart') }}" class="btn btn-warning btn-block text-dark">Добавить товар</a></p>
+    {% endif %}
+  </div>
+{% endblock %}

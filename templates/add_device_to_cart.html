@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>Add device to cart</h1>
+<form method = "POST" action = "/add-to-cart">
+    {{ form.hidden_tag() }}
+    {{ form.basetype }}
+    {{ form.extend_basetype }}
+    {{ form.measuring_range }}
+    {{ form.exit_range }}
+    {{ form.display }}
+    {{ form.connection_process }}
+    {{ form.temperature_measured }}
+    {{ form.process_connection_material }}
+    {{ form.electrical_connection }}
+    {{ form.typical_additions }}
+    {{ form.liquid }}
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+    {{ form.submit }}
+</form>
+
+{% endblock %}

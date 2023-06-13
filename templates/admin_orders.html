@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<div style = "margin-left: 120px;">
+  <h1>Заявки</h1>
+
+  <ul>
+  {% for order in orders %}
+    <li><a href="{{ url_for('admin_orders_details', order_id = order.order_id) }}">Заявка #{{ order.order_id }}</a></li>
+  {% else %}
+    <li>Заявок не найдено</li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning text-black mt-3">Назад</a></p>
+</div>
+{% endblock %}
